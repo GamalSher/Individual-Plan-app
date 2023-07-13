@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'semestr.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
   @override
@@ -55,7 +57,9 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(color: Colors.black),
                   ),
                 )
-              ])
+              ]),
+              const Expanded(
+                  child: TabBarView(children: [Semestr(), Text("second")]))
             ],
           ),
         ));
