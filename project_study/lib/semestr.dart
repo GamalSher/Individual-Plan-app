@@ -23,8 +23,103 @@ class _Semestr extends State<Semestr> {
   @override
   Widget build(BuildContext context) {
     readJson();
-    return const Scaffold(
-      body: Text("semestr 6"),
+    TableRow tableRow = const TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.0),
+      ),
+      Padding(
+        padding: EdgeInsets.all(0),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text(
+          "Аудиторные занятия в часах",
+          style: TextStyle(color: Colors.grey),
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+      ),
+    ]);
+    TableRow tableRowsecondary = const TableRow(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Наименование дисциплины"),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Леция"),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Семинар"),
+      ),
+      Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Text("Лабарат"),
+      ),
+    ]);
+    TableRow tableRow3 = TableRow(children: <Widget>[
+      Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Text(
+            '${_items[0]["Semesters"][0]['Disciplines'][0]['DisciplineName']['nameRu']}'),
+      ),
+      const Padding(
+        padding: EdgeInsets.all(0),
+      ),
+      const Padding(
+        padding: EdgeInsets.all(10.0),
+      ),
+      const Padding(
+        padding: EdgeInsets.all(10.0),
+      ),
+    ]);
+    TableRow tableRow4 = TableRow(children: <Widget>[
+      Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Text(
+            '${_items[0]['Semesters'][0]['Disciplines'][1]['DisciplineName']['nameRu']}'),
+      ),
+      const Padding(
+        padding: EdgeInsets.all(0),
+      ),
+      const Padding(
+        padding: EdgeInsets.all(10.0),
+      ),
+      const Padding(
+        padding: EdgeInsets.all(10.0),
+      ),
+    ]);
+    TableRow tableRow5 = TableRow(children: <Widget>[
+      Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Text(
+            '${_items[0]['Semesters'][0]['Disciplines'][2]['DisciplineName']['nameRu']}'),
+      ),
+      const Padding(
+        padding: EdgeInsets.all(0),
+      ),
+      const Padding(
+        padding: EdgeInsets.all(10.0),
+      ),
+      const Padding(
+        padding: EdgeInsets.all(10.0),
+      ),
+    ]);
+
+    return Scaffold(
+      body: Center(
+          child: Table(
+              defaultColumnWidth: const FixedColumnWidth(120.0),
+              border: TableBorder.all(),
+              children: <TableRow>[
+            tableRow,
+            tableRowsecondary,
+            tableRow3,
+            tableRow4,
+            tableRow5
+          ])),
     );
   }
 }
