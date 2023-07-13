@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const Tab(
                   child: Text(
-                    "Семестр 6",
+                    "Семестр 6 ",
                     style: TextStyle(color: Colors.black),
                   ),
                 )
