@@ -34,7 +34,8 @@ class _Semestr extends State<Semestr> {
         padding: EdgeInsets.all(10.0),
         child: Text(
           "Аудиторные занятия в часах",
-          style: TextStyle(color: Colors.grey),
+          style: TextStyle(color: Colors.grey, fontSize: 12),
+          textAlign: TextAlign.center,
         ),
       ),
       Padding(
@@ -44,11 +45,18 @@ class _Semestr extends State<Semestr> {
     TableRow tableRowsecondary = const TableRow(children: <Widget>[
       Padding(
         padding: EdgeInsets.all(10.0),
-        child: Text("Наименование дисциплины"),
+        child: Text(
+          "Наименование дисциплины",
+          style: TextStyle(fontSize: 12),
+          textAlign: TextAlign.center,
+        ),
       ),
       Padding(
         padding: EdgeInsets.all(10.0),
-        child: Text("Леция"),
+        child: Text(
+          "Леция",
+          textAlign: TextAlign.center,
+        ),
       ),
       Padding(
         padding: EdgeInsets.all(10.0),
@@ -109,17 +117,23 @@ class _Semestr extends State<Semestr> {
     ]);
 
     return Scaffold(
-      body: Center(
-          child: Table(
-              defaultColumnWidth: const FixedColumnWidth(120.0),
-              border: TableBorder.all(),
-              children: <TableRow>[
-            tableRow,
-            tableRowsecondary,
-            tableRow3,
-            tableRow4,
-            tableRow5
-          ])),
+      body: Column(children: [
+        Table(
+            columnWidths: const {
+              0: FractionColumnWidth(0.3),
+              1: FractionColumnWidth(0.225),
+              2: FractionColumnWidth(0.225),
+              3: FractionColumnWidth(0.25)
+            },
+            border: TableBorder.all(),
+            children: <TableRow>[
+              tableRow,
+              tableRowsecondary,
+              tableRow3,
+              tableRow4,
+              tableRow5
+            ])
+      ]),
     );
   }
 }

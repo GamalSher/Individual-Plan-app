@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
             centerTitle: true,
             title: const Text(
               "Индивидуальный учебный план",
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
           body: Column(
@@ -41,6 +41,7 @@ class _HomePageState extends State<HomePage> {
               Text(
                 'ИНДИВИДУАЛЬНЫЙ УЧЕБНЫЙ ПЛАН НА \n ${_items[0]['AcademicYear']}',
                 textAlign: TextAlign.center,
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const Padding(padding: EdgeInsets.only(bottom: 50)),
               TabBar(tabs: [
