@@ -29,6 +29,25 @@ class _HomePageState extends State<HomePage> {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
+            leading: GestureDetector(
+              onTap: () {/* Write listener code here */},
+              child: const Icon(
+                Icons.arrow_back_ios_new, // add custom icons also
+              ),
+            ),
+            actions: <Widget>[
+              Padding(
+                  padding: const EdgeInsets.only(right: 20.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      return _items[0]['DocumentURL'];
+                    },
+                    child: const Icon(
+                      Icons.sim_card_download_outlined,
+                      size: 26.0,
+                    ),
+                  ))
+            ],
             centerTitle: true,
             title: const Text(
               "Индивидуальный учебный план",
