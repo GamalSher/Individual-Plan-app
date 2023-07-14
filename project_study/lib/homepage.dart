@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'semestr.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
   @override
@@ -23,15 +25,33 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     readJson();
-    print(_items);
     return DefaultTabController(
-        length: 3,
+        length: 2,
         child: Scaffold(
           appBar: AppBar(
+            leading: GestureDetector(
+              onTap: () {/* Write listener code here */},
+              child: const Icon(
+                Icons.arrow_back_ios_new, // add custom icons also
+              ),
+            ),
+            actions: <Widget>[
+              Padding(
+                  padding: const EdgeInsets.only(right: 20.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      return _items[0]['DocumentURL'];
+                    },
+                    child: const Icon(
+                      Icons.sim_card_download_outlined,
+                      size: 26.0,
+                    ),
+                  ))
+            ],
             centerTitle: true,
             title: const Text(
               "Индивидуальный учебный план",
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           ),
           body: Column(
@@ -40,6 +60,7 @@ class _HomePageState extends State<HomePage> {
               Text(
                 'ИНДИВИДУАЛЬНЫЙ УЧЕБНЫЙ ПЛАН НА \n ${_items[0]['AcademicYear']}',
                 textAlign: TextAlign.center,
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const Padding(padding: EdgeInsets.only(bottom: 50)),
               TabBar(tabs: [
@@ -55,7 +76,9 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(color: Colors.black),
                   ),
                 )
-              ])
+              ]),
+              const Expanded(
+                  child: TabBarView(children: [Semestr(), Text("second")]))
             ],
           ),
         ));
